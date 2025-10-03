@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+</head>
+
+<body>
+    <!-- aqui ira el navbar general con %- include("ruta/archivo.ejs")  -->
+    <header>
+        <%- include("../partials/navbar") %>
+    </header>
+
+    <main class="container">
+        <%- body %>
+    </main>
+
+    <footer>
+        <p>&copy Todos los derechos reservado a mí.</p>
+    </footer>
+
+
+    <script src="/assets/js/jquery.js"></script>
+    <script type="module" src="/assets/js/navbar.js"></script>
+</body>
+
+</html>

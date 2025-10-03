@@ -1,0 +1,37 @@
+{
+  "name": "ts-express-socket.io",
+  "version": "1.0.0",
+  "description": "This is a express server for run socket.io technologies.  It contains the basic configuration in addition to some emits and listeners to understand the flow between the frontend and the backend.",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx --watch src/app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pabloacisera/TS-express-socket.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloacisera/TS-express-socket.io/issues"
+  },
+  "homepage": "https://github.com/pabloacisera/TS-express-socket.io#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

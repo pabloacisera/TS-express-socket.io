@@ -1,0 +1,22 @@
+.user-data-section {
+    background-color: #f8f9fa;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    margin: 0;
+}
+
+.user-data-section h3 {
+    margin: 0 0 0.5rem 0;
+    color: #495057;
+}
+
+.user-data-section p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.main-content {
+    padding: 2rem;
+    min-height: 60vh;
+}

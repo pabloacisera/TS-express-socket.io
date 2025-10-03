@@ -1,0 +1,14 @@
+<%- layout("layouts/main") %>
+<link rel="stylesheet" href="/assets/css/home.css">
+
+<!-- Sección de datos del usuario -->
+<div class="user-data-section">
+    <h3>¡Hola <%= user %>!</h3>
+    <p>Sesión iniciada: <strong><%= new Date().toLocaleString() %></strong></p>
+</div>
+
+<!-- Resto del contenido de la página -->
+<div class="main-content">
+    <h1>Bienvenido al sistema de facturación Billio</h1>
+    <p>Aquí va el contenido principal de tu aplicación...</p>
+</div>

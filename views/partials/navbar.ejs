@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/assets/css/navbar.css">
+<section class="nav-container">
+    <div class="logo">
+        <img src="/assets/img/billio_logo.png" alt="logo del sistema de facturación">
+    </div>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item <%= currentPage === 'home' ? 'active' : '' %>">
+                <a href="/home">facturar</a>
+            </li>
+            <li class="nav-item <%= currentPage === 'historial' ? 'active' : '' %>">
+                <a href="/historial">historial</a>
+            </li>
+        </ul>
+        <ul class="auth">
+            <li class="nav-item">Bienvenido <strong><%= user %></strong></li>
+        </ul>
+    </nav>
+</section>
