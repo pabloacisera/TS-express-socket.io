@@ -12,7 +12,7 @@
 
     <!-- Resto del contenido de la página -->
     <div class="main-content">
-        <h1>Sistema de facturación Billio</h1>
+        <h1>Sistema de facturación Bill.io</h1>
         <section class="buttons-sections">
             <button class="add-client" id="add-client">cargar cliente</button>
             <button class="add-product" id="add-product">cargar producto</button>
@@ -38,12 +38,12 @@
 
                 <div class="group-form-client">
                     <label for="name">nombre y apellido</label>
-                    <input type="text" name="name" autofocus>
+                    <input type="text" id="name" name="name" autofocus>
                 </div>
 
                 <div class="group-form-client">
                     <label for="cuit">C.U.I.T</label>
-                    <input type="text" name="cuit">
+                    <input type="text" id="cuit" name="cuit">
                 </div>
 
             </section>
@@ -51,12 +51,12 @@
 
                 <div class="group-form-client">
                     <label for="address">dirección</label>
-                    <input type="text" name="address">
+                    <input type="text" id="address" name="address">
                 </div>
 
                 <div class="group-form-client">
                     <label for="phone">teléfono</label>
-                    <input type="phone" name="phone">
+                    <input type="phone" id="phone" name="phone">
                 </div>
 
             </section>
@@ -64,7 +64,7 @@
             <section class="row-group">
                 <div class="group-form-client">
                     <label for="email">email</label>
-                    <input type="email" name="email">
+                    <input type="email" id="email" name="email">
                 </div>
 
             </section>
@@ -86,5 +86,6 @@
         // Usamos JSON.parse() del lado del cliente para asegurarnos de que el tipo sea correcto.
         window.ALL_CLIENTS = JSON.parse('<%- clients %>');
     </script>
+
     <script type="module" src="/assets/js/home.js"></script>
     <script type="module" src="/assets/js/clientForm.js"></script>

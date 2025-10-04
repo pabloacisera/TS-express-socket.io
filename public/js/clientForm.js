@@ -1,9 +1,13 @@
 // Archivo clientForm.js
-import { getData, deleteData } from './helpers/sessionHelpers.js';
+import { getData, deleteData, saveData } from './helpers/sessionHelpers.js';
+import { showConfirmModal } from './helpers/selectOption.js';
+import { loadTemplate } from './helpers/loaderTemplates.js';
+
+let formClientdata = []
+let formProductData = []
 
 // ** 1. Función para llenar los inputs **
 function fillClientForm() {
-    // Intentar obtener y parsear los datos
     let dataClientsSaved = getData('clientSelected');
 
     if (!dataClientsSaved) {
@@ -13,45 +17,65 @@ function fillClientForm() {
 
     try {
         const data = JSON.parse(dataClientsSaved);
-
         console.log('Cliente en sesión (para llenar): ', data);
 
-        // Iterar sobre las claves del objeto de datos (name, cuit, address, etc.)
         for (const key in data) {
             if (data.hasOwnProperty(key)) {
-                // Selecciona el input dentro del formulario #client-form
-                // cuyo atributo 'name' coincida con la clave
                 const selector = `#client-form input[name="${key}"]`;
-
-                // Rellena el input con el valor correspondiente
                 $(selector).val(data[key]);
             }
         }
-
     } catch (e) {
         console.error("Error al parsear datos de sesión al intentar llenar el formulario: ", e);
     }
 }
 
-
-// ** 2. Manejo de Submit (Delegación - ¡Muy Importante!) **
-// Usamos delegación para manejar el formulario DINÁMICO
+// ** 2. Manejo de Submit **
 $(function() {
-    $( document ).on( 'submit', '#client-form', function( event ) {
-        event.preventDefault( );
-        alert('Formulario de cliente enviado');
-        // Tu lógica de envío de datos
+    let container = $('#templates-content'); // Cambio aquí: # en lugar de .
+
+    $(document).on('submit', '#client-form', async function(event) {
+        event.preventDefault();
+
+        // Capturar los valores del formulario
+        const formData = {
+            name: $('#name').val(),
+            cuit: $('#cuit').val(),
+            address: $('#address').val(),
+            phone: $('#phone').val(),
+            email: $('#email').val()
+        };
+
+        console.log('Datos capturados del formulario:', formData);
+
+        // Verificar si hay datos válidos (al menos nombre o cuit)
+        if (!formData.name && !formData.cuit) {
+            const continuar = await showConfirmModal("No se ha ingresado ningún dato de cliente. ¿Desea continuar de todas formas?");
+
+            if (!continuar) {
+                return; // No hacer nada, quedarse en el formulario
+            }
+        } else {
+            // Guardar los datos si hay algo ingresado
+            formClientdata.push(formData);
+            saveData('clientSelected', JSON.stringify(formData));
+            console.log('Cliente guardado:', formData);
+        }
+
+        // Cargar el siguiente template (productos)
+        $('.add-client').removeClass('select');
+
+        loadTemplate(container, '#add-product-temp'); // Cambio aquí: sin el punto extra
+        $('.add-product').addClass('select');
     });
 
-
-    // resetar formulario
-    $( document ).on( 'click', '.btn-reset-warning', function( ) {
-        deleteData( 'clientSelected' );
-
-        window.location.href= '/home';
+    // Resetear formulario
+    $(document).on('click', '.btn-reset-warning', function() {
+        deleteData('clientSelected');
+        formClientdata = []; // Limpiar también el array
+        window.location.href = '/home';
     });
 });
 
-
-// ** 3. Exportar la función para ser llamada **
+// ** 3. Exportar la función **
 export { fillClientForm };
