@@ -67,30 +67,59 @@ input {
     padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 90%; /* Asegura que el input ocupe todo el ancho de su columna */
+    width: 95%; /* Asegura que el input ocupe todo el ancho de su columna */
 }
 
 /* ------------------------------------------- */
 /* 4. BOTÓN Y BÚSQUEDA */
 /* ------------------------------------------- */
 
-/* El botón debe ocupar toda la fila dentro del formulario */
+/* El formulario sigue siendo flex-column para el flujo general */
 #client-form {
     display: flex;
     flex-direction: column;
 }
 
-#client-form > button {
-    margin: auto;
-    width: 30%;
-    padding: 1rem;
-    background-color: #061729;
-    color: white;
+/* 1. Layout en Fila para el contenedor de botones (buttons-form) */
+.buttons-form {
+    display: flex;
+    justify-content: center; /* Centra el grupo de botones dentro del formulario */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 1.5rem; /* Espacio para separarlos del resto de inputs */
+}
+
+.buttons-form button {
+    padding: 1rem 1.5rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 1rem;
     font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s, opacity 0.2s;
+    /* Redefinimos un ancho razonable para que se vean bien en fila */
+    min-width: 180px;
+}
+
+/* 2. Botón Grabar y Continuar (AZUL ORIGINAL) */
+.buttons-form .btn-submit-primary {
+    background-color: #061729;
+    color: white;
+}
+
+.buttons-form .btn-submit-primary:hover {
+    /* Efecto hover: aclaramos un poco el azul */
+    background-color: #1a324a;
+}
+
+/* 3. Botón Resetear (AMARILLO/WARNING) */
+.buttons-form .btn-reset-warning {
+    background-color: #ffc107; /* Amarillo Warning */
+    color: #212529; /* Texto oscuro para contraste */
+}
+
+.buttons-form .btn-reset-warning:hover {
+    /* Efecto hover: oscurecemos un poco el amarillo */
+    background-color: #e0a800;
 }
 
 /* Estilo para la caja de búsqueda */
@@ -104,6 +133,192 @@ input {
 .search-client input[type="text"] {
     width: 50vw;
     padding: 0.75rem;
-    border: 1px solid #007bff;
-    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid #024388;
+    background-color: rgb(197, 195, 195);
+}
+
+/* ===================================== */
+/* AGREGAR AL FINAL DE form_section.css */
+/* ===================================== */
+
+/* Tablets - 768px y menores */
+@media (max-width: 768px) {
+    #templates-content {
+        padding: 1.5rem 0;
+    }
+
+    #templates-content #client-form {
+        padding: 1.5rem;
+    }
+
+    .row-group {
+        gap: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .group-form-client label {
+        font-size: 0.95rem;
+    }
+
+    .group-form-client input {
+        padding: 0.55rem;
+        font-size: 0.95rem;
+    }
+
+    .buttons-form {
+        gap: 12px;
+        margin-top: 1.25rem;
+    }
+
+    .buttons-form button {
+        padding: 0.9rem 1.3rem;
+        font-size: 0.95rem;
+        min-width: 160px;
+    }
+
+    .search-client input[type="text"] {
+        width: 60vw;
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Móviles - 640px y menores */
+@media (max-width: 640px) {
+    #templates-content {
+        padding: 1rem 0;
+    }
+
+    #templates-content #client-form {
+        padding: 1.25rem;
+    }
+
+    .row-group {
+        gap: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .group-form-client label {
+        font-size: 0.9rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .group-form-client input {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+        width: 97%;
+    }
+
+    .buttons-form {
+        gap: 10px;
+        margin-top: 1rem;
+    }
+
+    .buttons-form button {
+        padding: 0.85rem 1.2rem;
+        font-size: 0.9rem;
+        min-width: 140px;
+    }
+
+    .search-client {
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .search-client input[type="text"] {
+        width: 70vw;
+        padding: 0.65rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Móviles pequeños - 480px y menores */
+@media (max-width: 480px) {
+    #templates-content {
+        padding: 0.75rem 0;
+    }
+
+    #templates-content #client-form {
+        padding: 1rem;
+    }
+
+    /* CAMBIO CRÍTICO: Grid de 2 columnas a 1 columna */
+    .row-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .row-group:last-of-type {
+        grid-template-columns: 1fr;
+    }
+
+    .group-form-client label {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .group-form-client input {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    /* Botones en columna para móviles */
+    .buttons-form {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 1rem;
+    }
+
+    .buttons-form button {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .search-client {
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .search-client input[type="text"] {
+        width: 85vw;
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Móviles muy pequeños - 360px y menores */
+@media (max-width: 360px) {
+    #templates-content #client-form {
+        padding: 0.75rem;
+    }
+
+    .row-group {
+        gap: 0.75rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .group-form-client label {
+        font-size: 0.8rem;
+    }
+
+    .group-form-client input {
+        padding: 0.45rem;
+        font-size: 0.8rem;
+    }
+
+    .buttons-form button {
+        padding: 0.7rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .search-client input[type="text"] {
+        width: 90vw;
+        padding: 0.55rem;
+        font-size: 0.8rem;
+    }
 }

@@ -1,11 +1,13 @@
 // /assets/js/home.js
 import { loadTemplate } from "./helpers/loaderTemplates.js";
+import { fillClientForm } from "./clientForm.js";
 
 let container = $('#templates-content')
 
 $(function () {
     // Inicializa la página cargando el template de cliente por defecto
     loadTemplate(container, '#add-client-temp');
+    fillClientForm( );
     $('#add-client').addClass('select'); // Y establece el botón de cliente como activo
 
     // --- Click en "cargar cliente" ---
@@ -17,6 +19,7 @@ $(function () {
 
         // Cargar el template de cliente
         loadTemplate(container, '#add-client-temp');
+        fillClientForm( );
     });
 
 
@@ -29,11 +32,14 @@ $(function () {
 
         // Cargar el template de producto
         loadTemplate(container, '#add-product-temp');
+        fillClientForm( );
     });
 
     // funcionalidad de busqueda
     $(document).on( 'click', '#search-client', function() {
         $( '#client-search-modal' ).fadeIn( 350 );
     });
+
+    // TODO: función resetear formulario
 
 });

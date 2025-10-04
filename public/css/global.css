@@ -40,3 +40,89 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* ===================================== */
+/* AGREGAR AL FINAL DE global.css */
+/* ===================================== */
+
+/* Tablets - 768px y menores */
+@media (max-width: 768px) {
+    header {
+        height: 55px;
+    }
+
+    main {
+        margin-top: 55px;
+        margin-bottom: 2rem;
+        padding: 0.75rem;
+    }
+
+    footer {
+        height: 2rem;
+        font-size: 0.7rem;
+        padding: 0 0.5rem;
+    }
+}
+
+/* Móviles - 480px y menores */
+@media (max-width: 480px) {
+    header {
+        height: 48px;
+    }
+
+    main {
+        margin-top: 48px;
+        margin-bottom: 2.2rem;
+        padding: 0.5rem;
+    }
+
+    footer {
+        height: 2.2rem;
+        font-size: 0.65rem;
+        padding: 0 0.25rem;
+        text-align: center;
+    }
+
+    footer p {
+        margin: 0;
+        line-height: 1.2;
+    }
+}
+
+/* Móviles pequeños - 375px y menores */
+@media (max-width: 375px) {
+    header {
+        height: 45px;
+    }
+
+    main {
+        margin-top: 45px;
+        padding: 0.4rem;
+    }
+}
+
+/* Móviles muy pequeños - 320px y menores */
+@media (max-width: 320px) {
+    header {
+        height: 42px;
+    }
+
+    main {
+        margin-top: 42px;
+        padding: 0.25rem;
+    }
+
+    footer {
+        font-size: 0.6rem;
+    }
+}
+
+/* Transiciones suaves entre páginas */
+@view-transition {
+    navigation: auto;
+}
+
+/* Evita que el header "salte" durante la transición */
+header {
+    view-transition-name: header;
+}

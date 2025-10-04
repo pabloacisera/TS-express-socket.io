@@ -6,17 +6,17 @@
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Cambiado a space-between */
+    justify-content: space-between;
     width: 100%;
     padding: 0 1rem;
     padding-bottom: 1rem;
-    box-sizing: border-box; /* Importante para que el padding no cause desbordamiento */
+    box-sizing: border-box;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* Evita que el logo se reduzca */
+    flex-shrink: 0;
 }
 
 .logo img {
@@ -28,11 +28,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%;
     font-family: "RobotoSlabR";
     font-size: 0.92rem;
     color: grey;
-    margin-left: 1rem; /* Espacio entre logo y navbar */
+    margin-left: 1rem;
 }
 
 .nav-list {
@@ -48,35 +48,189 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-left: auto; /* Empuja hacia la derecha */
+    margin-left: auto;
 }
 
 .nav-item {
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    white-space: nowrap;
 }
 
 .nav-item a {
     text-decoration: none;
     color: rgb(255, 255, 255);
+    display: inline-block;
+    position: relative; /* Importante */
 }
 
-.nav-item:hover {
-    text-shadow: 1px 3px 3px rgb(185, 221, 203);
-    cursor: pointer;
+/* Pseudo-elemento para el subrayado - NO afecta el layout */
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
 }
 
-.active {
-    text-shadow: 1.8px 3px 3.8px rgb(186, 206, 196);
+.nav-item:hover a::after {
+    background-color: rgb(185, 221, 203);
 }
 
-/* Opcional: para evitar que el texto se salga en pantallas muy pequeñas */
-@media (max-width: 480px) {
+.nav-item.active a::after {
+    background-color: rgb(186, 206, 196);
+}
+
+/* ===================================== */
+/* MEDIA QUERIES RESPONSIVE */
+/* ===================================== */
+
+/* Tablets - 768px y menores */
+@media (max-width: 768px) {
     .nav-container {
-        flex-wrap: wrap;
+        padding: 0 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .logo img {
+        width: 3.5rem;
     }
 
     .navbar {
-        margin-left: 0;
-        margin-top: 0.5rem;
+        font-size: 0.85rem;
+        margin-left: 0.75rem;
+    }
+
+    .nav-list {
+        gap: 0.75rem;
+    }
+
+    .auth {
+        font-size: 0.8rem;
+    }
+}
+
+/* Móviles - 640px y menores */
+@media (max-width: 640px) {
+    .nav-container {
+        padding: 0 0.5rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .logo img {
+        width: 3rem;
+    }
+
+    .navbar {
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+    }
+
+    .nav-list {
+        gap: 0.5rem;
+    }
+
+    .auth {
+        font-size: 0.75rem;
+    }
+
+    .auth .nav-item {
+        font-size: 0.7rem;
+    }
+}
+
+/* Móviles pequeños - 480px y menores */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0.3rem 0.5rem;
+        flex-wrap: nowrap; /* CRÍTICO: evita el wrap */
+        align-items: center;
+    }
+
+    .logo img {
+        width: 2.5rem;
+    }
+
+    .navbar {
+        margin-left: 0.5rem;
+        margin-top: 0; /* Elimina el margin-top */
+        font-size: 0.7rem;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav-list {
+        gap: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .auth {
+        font-size: 0.65rem;
+        margin-left: auto;
+    }
+
+    .auth .nav-item {
+        font-size: 0.6rem;
+    }
+}
+
+/* Móviles muy pequeños - 375px y menores */
+@media (max-width: 375px) {
+    .nav-container {
+        padding: 0.25rem 0.4rem;
+    }
+
+    .logo img {
+        width: 2.2rem;
+    }
+
+    .navbar {
+        margin-left: 0.4rem;
+        font-size: 0.65rem;
+    }
+
+    .nav-list {
+        gap: 0.5rem;
+    }
+
+    .nav-list .nav-item a {
+        font-size: 0.65rem;
+    }
+
+    .auth {
+        font-size: 0.6rem;
+    }
+
+    .auth .nav-item {
+        font-size: 0.55rem;
+    }
+}
+
+/* Móviles extra pequeños - 320px y menores */
+@media (max-width: 320px) {
+    .nav-container {
+        padding: 0.2rem 0.3rem;
+    }
+
+    .logo img {
+        width: 2rem;
+    }
+
+    .navbar {
+        margin-left: 0.3rem;
+        font-size: 0.6rem;
+    }
+
+    .nav-list {
+        gap: 0.4rem;
+    }
+
+    .nav-list .nav-item a {
+        font-size: 0.6rem;
+    }
+
+    .auth .nav-item {
+        font-size: 0.5rem;
     }
 }

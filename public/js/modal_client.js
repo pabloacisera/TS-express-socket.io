@@ -59,8 +59,6 @@ const renderResults = (results, container) => {
 
 $(function () {
 
-    console.log('clientes cargados: ', clients);
-
     // Usamos .on('input') para una búsqueda flexible
     $('#modal-search-input').on('input', function () {
 

@@ -35,3 +35,11 @@ export const getData = ( key ) => {
         openToast( 'Error', 'No se ha podido seleccionar el cliente. Inténtelo de nuevo.', 1800 );
     }
 }
+
+export const deleteData = ( key ) => {
+    try {
+        sessionStorage.removeItem( key );
+    } catch (error) {
+        openToast( 'Error', 'No se ha podido eliminar el registro temporal del cliente', 1800 );
+    }
+}
