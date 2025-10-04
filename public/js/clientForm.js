@@ -1,6 +1,12 @@
 // Archivo clientForm.js
 
 $(function() {
-    console.log( "clienForm cargado..." );
-    // ... tu lógica de formulario aquí
+
+    // si existen datos en la session cargarlos
+
+
+    $( '#client-form' ).on( 'submit', function( event ) {
+        event.preventDefault( );
+        alert('submit')
+    })
 });

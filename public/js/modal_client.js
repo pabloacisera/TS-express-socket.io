@@ -1,5 +1,19 @@
+import { saveData } from "./helpers/sessionHelpers.js";
+
 // Acceder directamente a la variable global definida en el script block
 let clients = window.ALL_CLIENTS || [];
+
+// cerrar el modal y limpiar campos
+export function closeModalClient() {
+    // 1. Limpia el input de búsqueda
+    $('#modal-search-input').val("");
+
+    // 2. Limpia el área de resultados y restaura el mensaje inicial
+    $('#search-results-table').html('<p>Comienza a escribir para ver los resultados.</p>');
+
+    // 3. Oculta el modal
+    $('#client-search-modal').fadeOut(350);
+}
 
 // Función para renderizar los resultados en la tabla
 const renderResults = (results, container) => {
@@ -25,7 +39,13 @@ const renderResults = (results, container) => {
 
         // buscar checkbox y escuchar el click
         li.find( '.client-select-check' ).on( 'click', function( ){
-            console.log( client );
+
+            saveData( 'clientSelected', client )
+
+            setTimeout( ()=> {
+                window.location.href = '/home';
+            }, 2000 );
+
         } )
 
         // Opcional: añade un atributo de datos para identificar el cliente si es seleccionado
@@ -71,21 +91,12 @@ $(function () {
 
         // Llamar a la función que renderiza los resultados
         renderResults(termFound, resultElement);
-
-        console.log(termFound);
     });
 
     // cerrar modal
     $('.close-modal-btn').click(function () {
 
-        // 1. Limpia el input de búsqueda (usa "")
-        $('#modal-search-input').val("");
-
-        // 2. Limpia el área de resultados y restaura el mensaje inicial
-        $('#search-results-table').html('<p>Comienza a escribir para ver los resultados.</p>');
-
-        // 3. Oculta el modal
-        $('#client-search-modal').fadeOut(350);
+        closeModalClient( );
     });
 
 

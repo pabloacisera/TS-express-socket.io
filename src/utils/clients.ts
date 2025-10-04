@@ -1,5 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 // Define la estructura de un objeto Cliente
 export type Client = {
+    id: string;
     name: string;
     cuit: string;
     address: string;
@@ -13,9 +16,15 @@ function getCreatedAt(): Date {
     return new Date();
 }
 
+function createId( ) {
+    const id = uuidv4();
+    return id;
+}
+
 // Array con al menos 10 clientes de prueba
 export let clients: Client[] = [
     {
+        id: createId(),
         name: 'Pablo Cisera',
         cuit: '20329089895',
         address: 'Calle s/n Nº 2034',
@@ -24,6 +33,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Ana García S.A.',
         cuit: '30710254873',
         address: 'Av. Belgrano 1500, Buenos Aires',
@@ -32,6 +42,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Carlos Ruiz',
         cuit: '20159876541',
         address: 'Ruta 12 Km 54, Córdoba',
@@ -40,6 +51,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Estela Maris Ferretería',
         cuit: '33604987120',
         address: 'Independencia 75, Mendoza',
@@ -48,6 +60,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Daniel López',
         cuit: '27223344558',
         address: 'Los Robles 900, San Juan',
@@ -56,6 +69,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Marta Pérez Estudio Jurídico',
         cuit: '30556677881',
         address: 'Libertador 101, CABA',
@@ -64,6 +78,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Federico Gómez',
         cuit: '23389012347',
         address: 'Barrio Norte Casa 4, Tucumán',
@@ -72,6 +87,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Insumos Patagónicos SRL',
         cuit: '34998877665',
         address: 'Calle del Puerto s/n, Ushuaia',
@@ -80,6 +96,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Juan Alberto Vidal',
         cuit: '20101010101',
         address: 'Rivadavia 3050, Rosario',
@@ -88,6 +105,7 @@ export let clients: Client[] = [
         createdAt: getCreatedAt()
     },
     {
+        id: createId(),
         name: 'Tecnología Integral LTDA',
         cuit: '33509080706',
         address: 'Parque Industrial Lote 5, Salta',
