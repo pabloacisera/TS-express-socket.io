@@ -20,3 +20,34 @@
     padding: 2rem;
     min-height: 60vh;
 }
+
+.main-content h1 {
+    color: rgb(80, 77, 77);
+}
+
+.buttons-sections {
+    width: 25rem;
+    height: 3rem;
+    background-color: #495057;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.add-client, .add-product {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.add-client, .add-product:hover {
+    cursor: pointer;
+}
+
+button.select {
+    padding: 5px;
+    border-bottom: 2px solid grey;
+}
+

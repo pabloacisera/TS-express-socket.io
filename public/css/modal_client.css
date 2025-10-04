@@ -1,0 +1,106 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.search-controls input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*
+* RESULTADOS DE LA BUSQUEDA
+*/
+
+/* Estilos para el contenedor general de resultados */
+#search-results-table {
+    padding: 10px 0; /* Espacio interno para que no esté pegado a los bordes */
+    max-height: 300px; /* Limita la altura del contenedor */
+    overflow-y: auto; /* Permite desplazamiento si hay muchos resultados */
+}
+
+/* Estilos para la lista de resultados */
+.client-results-list {
+    list-style: none; /* Elimina los puntos por defecto de la lista */
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos para cada elemento (fila) de la lista */
+.client-results-list li {
+    padding: 10px 15px; /* Espacio interno para la fila */
+    border-bottom: 1px solid #eee; /* Línea separadora suave */
+    cursor: pointer; /* Indica que el elemento es clickeable/seleccionable */
+    display: flex; /* Usamos Flexbox para alinear el contenido */
+    justify-content: space-between; /* Distribuye el contenido a los extremos */
+    align-items: center; /* Centra verticalmente el contenido */
+    transition: background-color 0.2s; /* Suaviza el efecto hover */
+}
+
+/* Efecto Hover para interactividad */
+.client-results-list li:hover {
+    background-color: #f5f5f5; /* Fondo más claro al pasar el ratón */
+    color: rgb(24, 45, 116);
+}
+
+/* Estilos para la última fila */
+.client-results-list li:last-child {
+    border-bottom: none; /* Elimina la línea divisoria de la última fila */
+}
+
+/* Estilos para la información (Nombre en negrita) */
+.client-results-list li strong {
+    flex-grow: 1; /* Permite que el nombre o razón social ocupe el espacio */
+    margin-right: 15px;
+    font-size: 1.1em;
+}
+
+/* Estilos para la información secundaria (CUIT y Email) */
+.client-results-list li small {
+    color: #666;
+    margin-left: 5px;
+    font-size: 0.9em;
+    white-space: nowrap; /* Evita que el email/cuit se rompa en varias líneas */
+}
+
+/* Alineación específica para el CUIT (Opcional, si quieres que el email esté al final) */
+.client-results-list li small:nth-of-type(1) {
+    /* Si decides separar CUIT y Email con etiquetas small */
+    width: 150px; /* Darle un ancho fijo para que quede alineado tipo columna */
+    text-align: right;
+}

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { clients } from "../utils/clients.js";
 
 const r = Router( );
 
@@ -7,10 +8,15 @@ r.get( "/" , ( req, res ) => {
 } );
 
 r.get( "/home", ( req, res ) =>  {
+
+    // serializar los datos antes de enviar
+    let clientsJson = JSON.stringify( clients );
+
     res.render( "home", {
         title: "Home",
         user: " GUEST",
-        currentPage: "home"  // ← Agregar esto
+        currentPage: "home",  // ← Agregar esto
+        clients: clientsJson || []
     } );
 })
 

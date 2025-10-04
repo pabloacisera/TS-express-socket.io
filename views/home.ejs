@@ -1,14 +1,86 @@
 <%- layout("layouts/main") %>
-<link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/home.css">
+    <link rel="stylesheet" href="/assets/css/form_section.css">
 
-<!-- Sección de datos del usuario -->
-<div class="user-data-section">
-    <h3>¡Hola <%= user %>!</h3>
-    <p>Sesión iniciada: <strong><%= new Date().toLocaleString() %></strong></p>
-</div>
+    <!-- Sección de datos del usuario -->
+    <div class="user-data-section">
+        <h3>¡Hola <%= user %>!</h3>
+        <p>Sesión iniciada: <strong>
+                <%= new Date().toLocaleString() %>
+            </strong></p>
+    </div>
 
-<!-- Resto del contenido de la página -->
-<div class="main-content">
-    <h1>Bienvenido al sistema de facturación Billio</h1>
-    <p>Aquí va el contenido principal de tu aplicación...</p>
-</div>
+    <!-- Resto del contenido de la página -->
+    <div class="main-content">
+        <h1>Sistema de facturación Billio</h1>
+        <section class="buttons-sections">
+            <button class="add-client" id="add-client">cargar cliente</button>
+            <button class="add-product" id="add-product">cargar producto</button>
+        </section>
+
+        <!-- aqui se clonan los templates -->
+        <div id="templates-content"></div>
+
+        <%- include('./partials/modal_client') %>
+    </div>
+
+    <!-- templates -->
+
+    <template id="add-client-temp">
+        <section class="search-client">
+            <input type="text" placeholder="buscar cliente" id="search-client">
+        </section>
+        <form id="client-form">
+
+
+
+            <section class="row-group">
+
+                <div class="group-form-client">
+                    <label for="name">nombre y apellido</label>
+                    <input type="text" name="name" autofocus>
+                </div>
+
+                <div class="group-form-client">
+                    <label for="cuit">C.U.I.T</label>
+                    <input type="text" name="cuit">
+                </div>
+
+            </section>
+            <section class="row-group">
+
+                <div class="group-form-client">
+                    <label for="address">dirección</label>
+                    <input type="text" name="address">
+                </div>
+
+                <div class="group-form-client">
+                    <label for="phone">teléfono</label>
+                    <input type="phone" name="phone">
+                </div>
+
+            </section>
+
+            <section class="row-group">
+                <div class="group-form-client">
+                    <label for="email">email</label>
+                    <input type="email" name="email">
+                </div>
+
+            </section>
+            <button>grabar y continuar</button>
+        </form>
+    </template>
+
+    <template id="add-product-temp">
+        <p>aqui se cargaran productos</p>
+    </template>
+
+
+    <script>
+        // Se declara una variable global (o de ámbito de módulo) para almacenar los datos.
+        // Usamos JSON.parse() del lado del cliente para asegurarnos de que el tipo sea correcto.
+        window.ALL_CLIENTS = JSON.parse('<%- clients %>');
+    </script>
+    <script type="module" src="/assets/js/home.js"></script>
+    <script type="module" src="/assets/js/clientForm.js"></script>

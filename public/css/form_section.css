@@ -1,0 +1,109 @@
+/* ------------------------------------------- */
+/* 1. LAYOUT PRINCIPAL Y CONTENEDOR DE TEMPLATE */
+/* ------------------------------------------- */
+
+/* Asegura que el contenedor de templates centre el formulario */
+#templates-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+/* Apunta al formulario (#client-form) que está DENTRO del contenedor (#templates-content) */
+#templates-content #client-form {
+    width: 100%;
+    max-width: 850px; /* Ancho máximo para pantallas grandes */
+    padding: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------------------------------- */
+/* 2. ESTRUCTURA DE FILAS (ROW) CON GRID */
+/* ------------------------------------------- */
+
+/* CLAVE: Aplica Grid para crear dos columnas dentro de cada sección 'row-group' */
+.row-group {
+    display: grid;
+    /* Crea dos columnas de igual ancho (1fr) */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* Espacio horizontal y vertical entre los grupos de input */
+    margin-bottom: 1.5rem; /* Espacio entre las secciones (las filas enteras) */
+}
+
+/* Ajuste para la última fila que solo tiene un input (email) */
+/* El último .row-group debe ocupar las dos columnas, pero el contenido solo la primera mitad */
+.row-group:last-of-type {
+    /* Mantiene el diseño de dos columnas, incluso si solo hay un elemento */
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* ------------------------------------------- */
+/* 3. ESTRUCTURA DE GRUPO (LABEL Y INPUT) EN COLUMNA */
+/* ------------------------------------------- */
+
+/* CLAVE: Usa Flexbox para apilar Label e Input verticalmente */
+.group-form-client {
+    display: flex;
+    flex-direction: column; /* Apila Label e Input uno encima del otro */
+}
+
+.group-form-client label {
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    color: #585858;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.group-form-client input {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%; /* Asegura que el input ocupe todo el ancho de su columna */
+}
+
+/* ------------------------------------------- */
+/* 4. BOTÓN Y BÚSQUEDA */
+/* ------------------------------------------- */
+
+/* El botón debe ocupar toda la fila dentro del formulario */
+#client-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#client-form > button {
+    margin: auto;
+    width: 30%;
+    padding: 1rem;
+    background-color: #061729;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Estilo para la caja de búsqueda */
+.search-client {
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.search-client input[type="text"] {
+    width: 50vw;
+    padding: 0.75rem;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+}

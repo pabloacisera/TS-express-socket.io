@@ -31,6 +31,7 @@
     width: 100%; /* Ocupa todo el ancho disponible */
     font-family: "RobotoSlabR";
     font-size: 0.92rem;
+    color: grey;
     margin-left: 1rem; /* Espacio entre logo y navbar */
 }
 
@@ -56,16 +57,16 @@
 
 .nav-item a {
     text-decoration: none;
-    color: rgb(66, 66, 66);
+    color: rgb(255, 255, 255);
 }
 
 .nav-item:hover {
-    text-shadow: 1px 2px 3px rgb(14, 150, 82);
+    text-shadow: 1px 3px 3px rgb(185, 221, 203);
     cursor: pointer;
 }
 
 .active {
-    text-shadow: 1.8px 2.2px 3.8px rgb(3, 85, 44);
+    text-shadow: 1.8px 3px 3.8px rgb(186, 206, 196);
 }
 
 /* Opcional: para evitar que el texto se salga en pantallas muy pequeñas */
