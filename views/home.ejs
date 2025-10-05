@@ -1,6 +1,7 @@
 <%- layout("layouts/main") %>
     <link rel="stylesheet" href="/assets/css/home.css">
     <link rel="stylesheet" href="/assets/css/form_section.css">
+    <link rel="stylesheet" href="/assets/css/product_template.css">
 
     <!-- Sección de datos del usuario -->
     <div class="user-data-section">
@@ -77,15 +78,45 @@
     </template>
 
     <template id="add-product-temp">
-        <p>aqui se cargaran productos</p>
-    </template>
+        <div class="product-template-container">
+            <section class="search-product">
+                <input type="text" id="search-product-input" placeholder="buscar producto por ID, nombre, o precio">
+                <div class="result-list"></div>
+            </section>
 
+            <section class="table-result">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>código</th>
+                            <th>nombre</th>
+                            <th>precio</th>
+                            <th>cantidad</th>
+                            <th>subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los productos se insertan dinámicamente aquí -->
+                    </tbody>
+                    <tfoot style="display: none;">
+                        <!-- El total se inserta dinámicamente aquí -->
+                    </tfoot>
+                </table>
+            </section>
+
+            <div class="invoice-actions">
+                <button id="btn-facturar" type="button">Facturar</button>
+            </div>
+        </div>
+    </template>
 
     <script>
         // Se declara una variable global (o de ámbito de módulo) para almacenar los datos.
         // Usamos JSON.parse() del lado del cliente para asegurarnos de que el tipo sea correcto.
         window.ALL_CLIENTS = JSON.parse('<%- clients %>');
+        window.ALL_PRODUCTS = JSON.parse('<%- products %>');
     </script>
 
     <script type="module" src="/assets/js/home.js"></script>
     <script type="module" src="/assets/js/clientForm.js"></script>
+    <script type="module" src="/assets/js/product_template.js"></script>

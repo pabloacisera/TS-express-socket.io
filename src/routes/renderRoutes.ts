@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { clients } from "../utils/clients.js";
+import { products } from '../utils/products.js';
 
 const r = Router( );
 
@@ -11,12 +12,14 @@ r.get( "/home", ( req, res ) =>  {
 
     // serializar los datos antes de enviar
     let clientsJson = JSON.stringify( clients );
+    let productsJson = JSON.stringify( products );
 
     res.render( "home", {
         title: "Home",
         user: " GUEST",
         currentPage: "home",  // ← Agregar esto
-        clients: clientsJson || []
+        clients: clientsJson || [],
+        products: productsJson || []
     } );
 })
 
