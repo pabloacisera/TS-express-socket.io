@@ -15,12 +15,15 @@
     <div class="main-content">
         <h1>Sistema de facturación Bill.io</h1>
         <section class="buttons-sections">
-            <button class="add-client" id="add-client">cargar cliente</button>
             <button class="add-product" id="add-product">cargar producto</button>
+            <button class="add-client" id="add-client">cargar cliente</button>
+
         </section>
 
         <!-- aqui se clonan los templates -->
-        <div id="templates-content"></div>
+        <div id="templates-content">
+            Selecciona una acción
+        </div>
 
         <%- include('./partials/modal_client') %>
     </div>
@@ -32,8 +35,6 @@
             <input type="text" placeholder="buscar cliente" id="search-client">
         </section>
         <form id="client-form">
-
-
 
             <section class="row-group">
 
@@ -93,6 +94,7 @@
                             <th>precio</th>
                             <th>cantidad</th>
                             <th>subtotal</th>
+                            <th>accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -105,7 +107,8 @@
             </section>
 
             <div class="invoice-actions">
-                <button id="btn-facturar" type="button">Facturar</button>
+                <button id="btn-facturar">continuar</button>
+                <button id="btn-limpiar">limpiar</button>
             </div>
         </div>
     </template>
@@ -117,6 +120,6 @@
         window.ALL_PRODUCTS = JSON.parse('<%- products %>');
     </script>
 
+    
+    <!-- Archivo principal (depende de todos los módulos) -->
     <script type="module" src="/assets/js/home.js"></script>
-    <script type="module" src="/assets/js/clientForm.js"></script>
-    <script type="module" src="/assets/js/product_template.js"></script>

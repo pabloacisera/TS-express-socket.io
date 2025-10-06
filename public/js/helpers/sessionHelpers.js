@@ -30,7 +30,7 @@ export const getData = ( key ) => {
         // convertimos el json a object
         let objectData = JSON.parse( data );
 
-        return data;
+        return objectData;
     } catch (error) {
         openToast( 'Error', 'No se ha podido seleccionar el cliente. Inténtelo de nuevo.', 1800 );
     }

@@ -38,15 +38,29 @@ const renderResults = (results, container) => {
         </li>`);
 
         // buscar checkbox y escuchar el click
-        li.find( '.client-select-check' ).on( 'click', function( ){
+        li.find('.client-select-check').on('click', function() {
+            // ✅ CORREGIDO: Guardar como JSON string
+            saveData('clientSelected', JSON.stringify(client));
 
-            saveData( 'clientSelected', client )
+            // ✅ Actualizar también la variable global
+            window.formClientData = [client];
 
-            setTimeout( ()=> {
+            // ✅ Guardar productos seleccionados antes de recargar
+            if (typeof window.getSelectedProducts === 'function') {
+                const selectedProducts = window.getSelectedProducts();
+                if (selectedProducts && selectedProducts.length > 0) {
+                    saveData('productsSelected', JSON.stringify(selectedProducts));
+                    console.log('Productos guardados antes de recargar:', selectedProducts);
+                }
+            }
+
+            console.log('Cliente seleccionado y guardado:', client);
+
+            // Recargar después de un breve delay
+            setTimeout(() => {
                 window.location.href = '/home';
-            }, 2000 );
-
-        } )
+            }, 500);
+        });
 
         // Opcional: añade un atributo de datos para identificar el cliente si es seleccionado
         li.data('client-id', client.id);
@@ -83,7 +97,7 @@ $(function () {
 
             // Usamos .includes() para ver si el término está contenido en el campo
             return name.includes(lowerSearchTerm) ||
-                cuit.includes(lowerSearchTerm) || // CUIT a menudo es más estricto, pero includes funciona
+                cuit.includes(lowerSearchTerm) ||
                 email.includes(lowerSearchTerm);
         });
 
@@ -93,9 +107,7 @@ $(function () {
 
     // cerrar modal
     $('.close-modal-btn').click(function () {
-
-        closeModalClient( );
+        closeModalClient();
     });
-
 
 })

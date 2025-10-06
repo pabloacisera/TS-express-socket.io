@@ -122,20 +122,36 @@ input {
     background-color: #e0a800;
 }
 
-/* Estilo para la caja de búsqueda */
-.search-client {
+/* ========================================== */
+/* ESTILOS UNIFICADOS PARA INPUTS DE BÚSQUEDA */
+/* ========================================== */
+
+/* Contenedor de búsqueda - aplica a ambos templates */
+.search-client,
+.search-product {
+    display: flex;
     justify-content: center;
-    margin: auto;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
     padding-bottom: 1rem;
 }
 
-.search-client input[type="text"] {
+/* Input de búsqueda - estilos idénticos para ambos */
+.search-client input[type="text"],
+.search-product input[type="text"] {
     width: 50vw;
     padding: 0.75rem;
     border: none;
     border-bottom: 1px solid #024388;
     background-color: rgb(197, 195, 195);
+    font-size: 1rem;
+}
+
+/* Efecto focus para ambos inputs */
+.search-client input[type="text"]:focus,
+.search-product input[type="text"]:focus {
+    outline: none;
+    border-bottom: 2px solid #024388;
+    background-color: rgb(210, 208, 208);
 }
 
 /* ===================================== */
@@ -177,7 +193,9 @@ input {
         min-width: 160px;
     }
 
-    .search-client input[type="text"] {
+    /* Búsqueda - tablets */
+    .search-client input[type="text"],
+    .search-product input[type="text"] {
         width: 60vw;
         padding: 0.7rem;
         font-size: 0.95rem;
@@ -221,12 +239,15 @@ input {
         min-width: 140px;
     }
 
-    .search-client {
+    /* Búsqueda - móviles */
+    .search-client,
+    .search-product {
         margin-bottom: 1.5rem;
         padding-bottom: 0.75rem;
     }
 
-    .search-client input[type="text"] {
+    .search-client input[type="text"],
+    .search-product input[type="text"] {
         width: 70vw;
         padding: 0.65rem;
         font-size: 0.9rem;
@@ -279,12 +300,15 @@ input {
         width: 100%;
     }
 
-    .search-client {
+    /* Búsqueda - móviles pequeños */
+    .search-client,
+    .search-product {
         margin-bottom: 1.25rem;
         padding-bottom: 0.5rem;
     }
 
-    .search-client input[type="text"] {
+    .search-client input[type="text"],
+    .search-product input[type="text"] {
         width: 85vw;
         padding: 0.6rem;
         font-size: 0.85rem;
@@ -316,7 +340,9 @@ input {
         font-size: 0.8rem;
     }
 
-    .search-client input[type="text"] {
+    /* Búsqueda - móviles muy pequeños */
+    .search-client input[type="text"],
+    .search-product input[type="text"] {
         width: 90vw;
         padding: 0.55rem;
         font-size: 0.8rem;

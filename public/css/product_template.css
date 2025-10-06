@@ -5,24 +5,8 @@
 }
 
 .search-product {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    border-bottom: 1px solid #024388;
-    margin: 0 auto 2rem auto;
-    box-sizing: border-box;
     position: relative;
     z-index: 10;
-    background-color: white;
-    padding: 1rem 0;
-}
-
-#search-product-input {
-    background-color: rgb(197, 195, 195);
-    padding: 0.75rem;
-    outline: none;
-    border: none;
-    border-radius: 4px;
 }
 
 .result-list {
@@ -31,143 +15,83 @@
     width: 100%;
     max-height: 25rem;
     overflow-y: auto;
-    border: 0.725px solid rgb(73, 73, 73);
+    border: 1px solid #ddd;
     background-color: white;
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 100;
-    box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.result-list .item {
+/* CADA LI EN UNA SOLA FILA HORIZONTAL */
+.result-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.75rem;
-    cursor: pointer;
     border-bottom: 1px solid #e0e0e0;
     background-color: white;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    gap: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.result-list .item:hover {
-    background-color: #f0f0f0;
+.result-list li:hover {
+    background-color: #f8f9fa;
 }
 
-.result-list .item.focused {
-    background-color: #e3f2fd;
-    outline: 2px solid #2196F3;
-    outline-offset: -2px;
-}
-
-.result-list .item:last-child {
+.result-list li:last-child {
     border-bottom: none;
 }
 
-.result-list .item.no-result {
+.result-list .no-results {
     justify-content: center;
     color: #666;
     cursor: default;
 }
 
-.result-list .item.no-result:hover {
+.result-list .no-results:hover {
     background-color: white;
 }
 
-.product-checkbox {
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    flex-shrink: 0;
-}
-
-.item-content {
-    flex: 1;
+.product-item {
     user-select: none;
 }
 
-/* Estilos para la tabla */
-.table-result {
-    width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.table-result table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.table-result thead {
-    background-color: #024388;
-    color: white;
-}
-
-.table-result th {
-    padding: 1rem;
-    text-align: left;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-}
-
-.table-result td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.table-result tbody tr:hover {
-    background-color: #f5f5f5;
-}
-
-.table-result tbody tr:last-child td {
-    border-bottom: none;
-}
-
-/* Estilos para la columna subtotal */
-.table-result td.subtotal {
+/* ELEMENTOS DENTRO DEL LI - TODOS EN LÍNEA */
+.product-code {
+    min-width: 100px;
     font-weight: 600;
     color: #024388;
+    font-size: 0.9rem;
+}
+
+.product-name {
+    flex: 1;
+    font-size: 0.9rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    min-width: 80px;
+    font-weight: 600;
+    color: #28a745;
+    font-size: 0.9rem;
     text-align: right;
 }
 
-/* Estilos para el footer con el total */
-.table-result tfoot {
-    display: none;
-}
-
-.table-result tfoot tr.total-row {
-    background-color: #024388;
-    color: white;
-    font-weight: bold;
-}
-
-.table-result tfoot td {
-    padding: 1rem;
-    border: none;
-}
-
-.table-result tfoot td.total-label {
-    text-align: right;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-
-.table-result tfoot td.total-value {
-    text-align: right;
-    font-size: 1.25rem;
-}
-
-/* Controles de cantidad */
+/* CONTROLES DE CANTIDAD EN LÍNEA */
 .quantity-controls {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 .qty-btn {
@@ -177,8 +101,8 @@
     background-color: white;
     color: #024388;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 1.25rem;
+    border-radius: 3px;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,114 +114,97 @@
     color: white;
 }
 
-.qty-btn:active {
-    transform: scale(0.95);
+.qty-btn:focus {
+    outline: 2px solid #024388;
+    outline-offset: 1px;
 }
 
-.qty-input {
-    width: 60px;
-    padding: 0.5rem;
+.quantity-input {
+    width: 50px;
+    padding: 0.3rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 3px;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
-.qty-input:focus {
-    outline: none;
+.quantity-input:focus {
+    outline: 2px solid #024388;
     border-color: #024388;
 }
 
-.remove-btn {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #dc3545;
-    background-color: white;
-    color: #dc3545;
+/* CHECKBOX */
+.add-checkbox {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    margin-left: 0.5rem;
 }
 
-.remove-btn:hover {
+.add-checkbox:focus {
+    outline: 2px solid #024388;
+    outline-offset: 1px;
+}
+
+.add-checkbox:checked {
+    accent-color: #28a745;
+}
+
+/* =============================================
+* CSS ADICIONAL PARA LA TABLA
+*/
+
+
+.selected-product-row:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-remove-from-table {
     background-color: #dc3545;
     color: white;
-}
-
-.remove-btn:active {
-    transform: scale(0.95);
-}
-
-/* Contenedor del botón facturar */
-.invoice-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1.5rem;
-    width: 70vw;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-}
-
-/* Botón facturar */
-#btn-facturar {
-    background-color: #28a745;
-    color: white;
     border: none;
-    padding: 0.875rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
-    letter-spacing: 0.5px;
+    transition: all 0.2s;
 }
 
-#btn-facturar:hover {
-    background-color: #218838;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+.btn-remove-from-table:hover {
+    background-color: #c82333;
 }
 
-#btn-facturar:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.empty-table-message {
+    background-color: #f8f9fa;
 }
 
-#btn-facturar:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-    opacity: 0.6;
+.total-row {
+    background-color: #024388;
+    color: white;
+    font-weight: bold;
 }
 
-/* Responsive */
+.total-label {
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.total-value {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .search-product {
-        width: 95vw;
-    }
-
-    .table-result {
-        width: 95vw;
-    }
-
-    .quantity-controls {
+    .result-list li {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
-    .invoice-actions {
-        width: 95vw;
-        justify-content: center;
-    }
-
-    #btn-facturar {
-        width: 100%;
-        max-width: 300px;
+    .product-code,
+    .product-name,
+    .product-price {
+        min-width: auto;
     }
 }
