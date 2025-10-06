@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8fad8;
+}
+
+header{
+    position: relative;
+    top: 0;
+    width: 100vw;
+    overflow: hidden;
+    height: 4rem;
+    background-color: chocolate;
+    box-shadow: 1px 2.8px 3px rgb(128, 70, 29);
+    border: none;
+}

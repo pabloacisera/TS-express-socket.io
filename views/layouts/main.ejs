@@ -1,55 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
-    <meta name="view-transition" content="same-origin">
+    <title><%= title || 'principal' %></title>
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
-
 <body>
-    <!-- aqui ira el navbar general con %- include("ruta/archivo.ejs")  -->
     <header>
-
-        <section class="nav-container">
-            <div class="logo">
-                <img src="/assets/img/billio_logo.png" alt="logo del sistema de facturación">
-            </div>
-            <nav class="navbar">
-                <ul class="nav-list">
-                    <li class="nav-item <%= currentPage === 'home' ? 'active' : '' %>">
-                        <a href="/home">facturar</a>
-                    </li>
-                    <li class="nav-item <%= currentPage === 'historial' ? 'active' : '' %>">
-                        <a href="/historial">historial</a>
-                    </li>
-                </ul>
-                <ul class="auth">
-                    <li class="nav-item">Bienvenido <strong>
-                            <%= user %>
-                        </strong></li>
-                </ul>
-            </nav>
-        </section>
-
+        <nav>
+            <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/facturation">facturacion</a></li>
+                <li><a href="/historial">historial</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <main class="container">
+    <main>
         <%- body %>
     </main>
-
-    <footer>
-        <p>&copy Todos los derechos reservado a mí.</p>
-    </footer>
-
-
-    <script src="/assets/js/jquery.js"></script>
-    <script type="module" src="/assets/js/navbar.js"></script>
 </body>
-
 </html>
