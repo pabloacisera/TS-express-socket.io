@@ -31,8 +31,8 @@ export function showSpinner(duration) {
   spinner.style.cssText = `
     width: 60px;
     height: 60px;
-    border: 6px solid rgba(26, 50, 74, 0.2);
-    border-top-color: #1a324a;
+    border: 6px solid rgb(211, 132, 75);
+    border-top-color: #6d452eff;
     border-radius: 50%;
     animation: spin 1s linear infinite;
   `;

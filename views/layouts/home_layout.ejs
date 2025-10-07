@@ -1,10 +1,21 @@
 <%- layout('layouts/main') %>
-<p>Bienvenido al sistema de facturacion</p>
-<nav>
-    <ul>
-        <li><a href="/home/products">productos</a></li>
-        <li><a href="/home/clients">clientes</a></li>
-    </ul>
-</nav>
+    <link rel="stylesheet" href="/assets/css/home_layout.css">
+    <div class="home-layout-container">
+        <p class="facturation-title">Sistema de facturacion</p>
+        <nav class="fact-nav">
+            <ul class="fact-nav-list">
+                <li class="fact-list-item <%= internalPage === 'products' ? 'selected': '' %>">
+                    <a href="/facturation/products">
+                        <span>1</span>productos
+                    </a>
+                </li>
+                <li class="fact-list-item <%= internalPage === 'clients' ? 'selected': '' %>">
+                    <a href="/facturation/clients">
+                        <span>2</span>clientes
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-<%- body %>
+        <%- body %>
+    </div>

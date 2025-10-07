@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'IbmPlex';
+    src: url('/assets/fonts/IBMPlexSans-wght.ttf');
+}
+
+.home-layout-container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.facturation-title{
+    text-align: center;
+    color: rgb(98, 114, 93);
+    font-size: 2rem;
+    font-family: 'IbmPlex';
+    text-shadow: 0.2px 0.4px 1px rgb(30, 100, 13);
+}
+
+.fact-nav{
+    display: flex;
+    width: 100%;
+    max-width: 32rem; /* Más ancho pero con límite */
+    background-color: rgb(25, 83, 64);
+    margin: 0.2rem auto; /* Más separación vertical */
+    justify-content: center; /* Centrado mejor */
+    align-items: center;
+    border-radius: 6px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    overflow: hidden; /* Para el border-radius */
+}
+
+.fact-nav-list{
+    display: flex;
+    justify-content: center;
+    gap: 0; /* Sin gap, los items estarán pegados */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+}
+
+.fact-list-item{
+    flex: 1; /* Cada item ocupa el mismo espacio */
+    text-align: center;
+    padding: 14px 24px; /* Más padding vertical */
+    transition: background-color 0.2s ease;
+}
+
+.fact-list-item:hover{
+    background-color: rgb(35, 103, 80); /* Un poco más claro al hover */
+}
+
+.fact-list-item a{
+    display: block; /* Para que el área clickeable sea todo el li */
+    text-decoration: none;
+    color: #e8f5e9; /* Color más claro y legible */
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.fact-list-item a:hover{
+    color: #ffffff;
+}
+
+/* Separador visual entre items */
+.fact-list-item:not(:last-child){
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Item activo (agrega clase 'active' en el HTML según la página) */
+.fact-list-item.active{
+    background-color: rgb(35, 103, 80);
+    border-bottom: 3px solid #4caf50;
+}
+
+.fact-list-item span {
+    background-color: rgb(11, 31, 31);
+    color: white;
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    padding: 6px 9px;
+    margin: 0 12px 0 12px ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fact-list-item.selected {
+    background-color: rgb(35, 103, 80);
+    border: 2px solid #03bb09;
+    border-bottom: 3px solid #4caf50;
+}
+
+.fact-list-item.selected span {
+    border: 2px solid #03bb09;
+    background-color: rgb(20, 50, 40);
+}

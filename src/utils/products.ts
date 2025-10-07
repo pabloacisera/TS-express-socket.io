@@ -6,8 +6,8 @@ function createCodeProduct() {
   return code;
 }
 
-function getCreatedAt(): Date {
-  return new Date();
+function getCreatedAt(): string {
+  return new Date().toISOString();
 }
 
 function createId() {
@@ -23,7 +23,7 @@ type Product = {
   description: string;
   price: number;
   owner: string;
-  createdAt: Date;
+  createdAt: string;
 };
 
 export let products: Product[] = [

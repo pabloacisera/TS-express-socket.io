@@ -21,31 +21,28 @@ r.get("/home", (req, res) => {
 });
 
 r.get("/facturation", (req, res) => {
-    res.render("facturation", {
-        title: "Facturación",
-        currentPage: "facturation"
-    })
+    res.redirect("/facturation/products")
 })
 
 // Sub-rutas del home
-r.get("/home/products", (req, res) => {
+r.get("/facturation/products", (req, res) => {
     res.render("products", {
         title: "Gestión de Productos",
         user: "GUEST",
         currentPage: "home",
         internalPage: "products",  // ← Página interna activa
         products: productsJson,
-        clients: clientsJson
+        //clients: clientsJson
     });
 });
 
-r.get("/home/clients", (req, res) => {
+r.get("/facturation/clients", (req, res) => {
     res.render("clients", {
         title: "Gestión de Clientes",
         user: "GUEST",
         currentPage: "home",
         internalPage: "clients",  // ← Página interna activa
-        products: productsJson,
+        //products: productsJson,
         clients: clientsJson
     });
 });

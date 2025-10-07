@@ -1,2 +1,50 @@
 <%- layout('layouts/home_layout') %>
-<p>template de clientes</p>
+    <link rel="stylesheet" href="/assets/css/client_template.css">
+    <div class="client-container">
+        <section class="search-client">
+            <input type="text" id="searchTerm" name="searchTerm" placeholder="buscar por nombre, cuit o email">
+        </section>
+        <section class="form-container">
+            <form class="form">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">nombre completo</label>
+                        <input type="text" id="name" name="name" placeholder="ejemplo: juan perez">
+                    </div>
+                    <div class="form-group">
+                        <label for="cuit">CUIT</label>
+                        <input type="text" id="cuit" name="cuit" placeholder="ejemplo: 20111333445">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="address">direccion</label>
+                        <input type="text" id="name" name="name" placeholder="ejemplo: calle s/n nº 23652">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">ciudad</label>
+                        <input type="text" id="city" name="city" placeholder="ejemplo: ciudad falsa">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" id="email" name="mail" placeholder="ejemplo: example@email.org">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">cel</label>
+                        <input type="text" id="phone" name="phone" placeholder="ejemplo: +54 9 3482 278 465">
+                    </div>
+                </div>
+
+                <div class="section-buttons">
+                    <button type="button" id="btn-continue">continuar</button>
+                    <button type="button" id="btn-clean">limpiar</button>
+                </div>
+
+            </form>
+        </section>
+    </div>

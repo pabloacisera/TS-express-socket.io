@@ -1,0 +1,28 @@
+.product-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ← Esto centra los hijos horizontalmente */
+    box-sizing: border-box;
+    width: 90vw;
+    margin: 0 auto; /* ← Por si acaso, centra el contenedor también */
+    text-align: center;
+    padding: 2rem 0; /* Añade espaciado vertical */
+}
+
+.search-product{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-product input {
+    outline: none;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid rgb(86, 104, 86);
+    padding: 0 8px; /* Para que el texto no esté pegado al borde */
+}
+
+

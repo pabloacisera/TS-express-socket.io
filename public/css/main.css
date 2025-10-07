@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'RobotoSlabReg';
+    src: url("/assets/fonts/RobotoSlab-regular.ttf");
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -11,7 +16,117 @@ header{
     width: 100vw;
     overflow: hidden;
     height: 4rem;
-    background-color: chocolate;
+    background-color: rgb(211, 132, 75);
     box-shadow: 1px 2.8px 3px rgb(128, 70, 29);
     border: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'RobotoSlabReg';
+    font-size: small;
+}
+
+.auth{
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.first-nav{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.first-nav-list{
+    list-style: none;
+    display: flex;
+    padding: 8px;
+    gap: 12px;
+    align-items: center;
+}
+
+.link-item {
+    padding: 8px;
+}
+
+.link-item a{
+    text-decoration: none;
+    color: #000
+}
+
+.link-item a:hover{
+    color: #fff
+}
+
+.link-item:hover{
+    background-color: rgb(236, 171, 98);
+    border-radius: 4.5px;
+    box-shadow: 0.8px 1.1px 1.8px orangered
+}
+
+.logo{
+    padding-right: 10px;
+}
+
+.logo img{
+    width: 2rem;
+    height: 2rem;
+    color: #000;
+    border-radius: 100%;
+}
+
+.logo img:hover {
+    cursor: pointer;
+    background-color: rgb(236, 171, 98);
+    box-shadow: 0.8px 1.1px 1.8px orangered
+}
+
+
+/*
+* LISTA DESPLEGABLE PERFIL
+*/
+
+.profile {
+    display: none;
+    flex-direction: column;
+    width: 8rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 3.1rem;
+    z-index: 1000;
+}
+
+.profile-list{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    box-shadow: 0.8px 0.2px 2.1px rgb(124, 124, 124);
+
+    /* Estilos que faltaban: */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff; /* O el color de fondo que quieras */
+    border:none;
+}
+
+.profile-list-item{
+    box-sizing: border-box;
+    font-family: 'RobotoSlabReg';
+    font-size: small;
+    color: rgb(71, 71, 71);
+
+    /* Estilos que faltaban: */
+    padding: 12px 18px;
+}
+
+.profile-list-item:hover{
+    cursor: pointer;
+    background-color: rgb(241, 200, 152); /* Color más claro para hover */
+    color: #535252;
+    border: none;
+    border-bottom: 0.8px solid rgb(219, 183, 157);
 }

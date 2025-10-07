@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title || 'principal' %></title>
+    <title>
+        <%= title || 'principal' %>
+    </title>
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
+
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/facturation">facturacion</a></li>
-                <li><a href="/historial">historial</a></li>
+        <nav class="first-nav">
+            <ul class="first-nav-list">
+                <li class="link-item"><a href="/">home</a></li>
+                <li class="link-item"><a href="/facturation">facturacion</a></li>
+                <li class="link-item"><a href="/historial">historial</a></li>
             </ul>
         </nav>
+        <section class="auth">
+            <div class="logo">
+                <img src="/assets/img/account_circle_77dp_000000_FILL0_wght400_GRAD0_opsz48.png"
+                    alt="icono de perfil no registrado">
+            </div>
+
+            <p>
+                <%= user %>
+            </p>
+        </section>
     </header>
+
+    <div class="profile">
+        <ul class="profile-list">
+            <li class="profile-list-item">perfil</li>
+            <li class="profile-list-item">configuracion</li>
+            <li class="profile-list-item">cerrar</li>
+        </ul>
+    </div>
+
     <main>
         <%- body %>
     </main>
+
+    <script src="/assets/js/jquery.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
 </body>
+
 </html>

@@ -1,2 +1,12 @@
 <%- layout('layouts/home_layout') %>
-<p>template de productos</p>
+    <link rel="stylesheet" href="/assets/css/product_template.css">
+
+    <%- include('partials/productsModal', { dataJson: products }) %>
+
+    <div class="product-container">
+        <section class="search-product">
+                <input type="text" id="searchTerm" name="searchTerm" placeholder="buscar por codigo, nombre o marca">
+        </section>
+    </div>
+
+    <script type="module" src="/assets/js/products.js"></script>
