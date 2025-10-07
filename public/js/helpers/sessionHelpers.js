@@ -8,9 +8,6 @@ export const saveData = (key, data) => {
         // guardar en session
         sessionStorage.setItem(key, dataJson);
 
-        //alert('Cliente almacenado redirigiendo')
-        openToast( 'Aviso', 'Cliente seleccionado. Actualizando formulario...', 1800 );
-
     } catch (error) {
         openToast( 'Error', 'No se ha podido seleccionar el cliente. Inténtelo de nuevo.', 1800 );
     }

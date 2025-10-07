@@ -64,7 +64,7 @@ header{
 .link-item:hover{
     background-color: rgb(236, 171, 98);
     border-radius: 4.5px;
-    box-shadow: 0.8px 1.1px 1.8px orangered
+    box-shadow: 0.8px 1.1px 1.8px rgb(37, 10, 0)
 }
 
 .logo{
@@ -81,7 +81,7 @@ header{
 .logo img:hover {
     cursor: pointer;
     background-color: rgb(236, 171, 98);
-    box-shadow: 0.8px 1.1px 1.8px orangered
+    box-shadow: 0.8px 1.1px 1.8px rgb(37, 10, 0)
 }
 
 

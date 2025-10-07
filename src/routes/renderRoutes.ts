@@ -47,6 +47,16 @@ r.get("/facturation/clients", (req, res) => {
     });
 });
 
+r.get("/facturation/pay", (req, res) => {
+    res.render("pay", {
+        title: "Gestión de Pago",
+        user: "GUEST",
+        currentPage: "home",
+        internalPage: "pay",  // ← Página interna activa
+        //products: productsJson,
+    });
+});
+
 r.get("/historial", (req, res) => {
     res.render("historial", {
         title: "Historial",

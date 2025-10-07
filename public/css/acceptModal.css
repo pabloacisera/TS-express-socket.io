@@ -1,0 +1,121 @@
+.modal-accept-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-accept-overlay.active {
+    display: flex;
+}
+
+.accept-modal-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    min-height: 200px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    z-index: 1101;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid #e0e0e0;
+}
+
+.header-modal {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si es necesario */
+}
+
+.header-modal h5 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 650;
+    text-align: center;
+    padding-bottom: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.message-modal {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.message-modal p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.btn-option-yes, .btn-option-no {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.btn-option-yes {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-option-yes:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+}
+
+.btn-option-no {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-option-no:hover {
+    background-color: #545b62;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* Efectos de focus para accesibilidad */
+.btn-option-yes:focus, 
+.btn-option-no:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+}
+
+.btn-option-no:focus {
+    box-shadow: 0 0 0 3px rgba(108, 117, 125, 0.3);
+}

@@ -4,13 +4,23 @@
     <%- products %>
 </script>
 
-<div class="modal-overlay">
+<div class="products-modal-overlay"> <!-- CLASE ÚNICA -->
     <div class="product-modal-container">
-        <div class="header-modal">
+        <div class="save-data">
+             <button type="button">grabar</button>
+        </div>
+        <div class="products-header-modal"> <!-- CLASE ÚNICA -->
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
         </div>
         <div class="product-container-modal">
-            <input type="text" name="productSearchTerm" id="productSearchTerm" autofocus placeholder="buscar producto">
+            <input 
+            type="text" 
+            name="productSearchTerm" 
+            id="productSearchTerm" 
+            autofocus 
+            placeholder="buscar producto"
+            class="product-container-modal-input"
+            >
             <section class="result-search"></section>
         </div>
     </div>
