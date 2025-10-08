@@ -87,7 +87,7 @@ function updateSelectionCounter() {
     // Agregar un contador en el modal
     $('.selection-counter').remove();
     if (count > 0) {
-        $('.save-data').prepend(`<span class="selection-counter">(${count} seleccionados)</span>`);
+        $('.save-data').append(`<span class="selection-counter">(${count} items guardados)</span>`);
     }
 }
 

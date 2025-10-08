@@ -40,3 +40,8 @@ export const deleteData = ( key ) => {
         openToast( 'Error', 'No se ha podido eliminar el registro temporal del cliente', 1800 );
     }
 }
+
+export const hasData = (key, propertyPath = null) => {
+    const result = verifyData(key, propertyPath);
+    return result.exists && result.hasProperty;
+}

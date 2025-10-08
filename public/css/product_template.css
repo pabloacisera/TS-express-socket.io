@@ -1,47 +1,68 @@
 .product-container{
     display: flex;
     flex-direction: column;
-    align-items: center; /* ← Esto centra los hijos horizontalmente */
+    align-items: center;
     box-sizing: border-box;
     width: 90vw;
-    margin: 0 auto; /* ← Por si acaso, centra el contenedor también */
+    margin: 0 auto;
     text-align: center;
-    padding: 2rem 0; /* Añade espaciado vertical */
 }
 
 .search-product{
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .search-product input {
     outline: none;
-    width: 100%;
-    height: 2rem;
+    /*width: 50%; /* Asegurar que sea 100% */
+    height: 2.5rem;
     border: none;
-    border-bottom: 1px solid rgb(86, 104, 86);
-    padding: 0 8px; /* Para que el texto no esté pegado al borde */
+    border-radius: 3px;
+    border-bottom: 2px solid rgb(86, 104, 86);
+    padding: 0 12px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-product input:focus {
+    border-bottom-color: #9296c0;
 }
 
 .table-products {
     width: 80%;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .table-template {
     width: 100%;
-    border-collapse: collapse; /* Importante: une los bordes */
-    background-color: rgb(231, 229, 229);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-collapse: collapse;
+    background-color: rgb(253, 248, 248);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* ← YA TIENE ESTE */
     border-radius: 3px;
     overflow: hidden;
-    box-shadow: 2px 1px 1.1px #1a1b2e;
+    /* ELIMINADO: box-shadow: 2px 1px 1.1px #1a1b2e; ← esto duplica sombras */
 }
 
+/* CORRECCIÓN CRÍTICA: El footer debe tener el mismo ancho */
+.table-footer {
+    width: 100%; /* ← ESTA LÍNEA ES CLAVE */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top: 2px solid #e9ecef;
+    margin-top: 2rem;
+    box-sizing: border-box; /* ← Esto también ayuda */
+}
+
+/* El resto de tu CSS se mantiene igual */
 .table-head {
-    background-color: #9296c0; /* Tu color rojo */
+    background-color: #9296c0;
 }
 
 .table-head th {
@@ -51,7 +72,6 @@
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.7em;
-    border-radius: 3px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -63,7 +83,6 @@
     font-size: 0.811rem;
 }
 
-/* Última fila sin borde inferior */
 .table-body tr:last-child td {
     border-bottom: none;
 }
@@ -81,3 +100,162 @@
     cursor: pointer;
 }
 
+.total-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.total-label {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.total-amount {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.button-section {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-continue {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+}
+
+.btn-continue:hover {
+    background: linear-gradient(135deg, #229954, #27ae60);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+}
+
+.btn-budget {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-budget:hover {
+    background: linear-gradient(135deg, #2980b9, #2573a7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-clear {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.btn-clear:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.loading .spinner {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: #999;
+    font-style: italic;
+}
+
+.loading-state {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.section-total{
+    padding: 8px;
+    margin-top: 150px;
+    margin-left: 100px;
+    position: relative;
+    top:0;
+    right: 0;
+}
+
+/*
+* CONFIGURACION PARA TODOS LOS INPUTS CON PLACEHOLDER
+*/
+
+input::placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    font-style: italic;
+}
+
+/* Para compatibilidad con navegadores más antiguos */
+input::-webkit-input-placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    font-style: italic;
+}
+
+input::-moz-placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    font-style: italic;
+    opacity: 1;
+}
+
+input:-ms-input-placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    font-style: italic;
+}
+
+input::-ms-input-placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.7rem;
+    color: #adb5bd;
+    font-style: italic;
+}

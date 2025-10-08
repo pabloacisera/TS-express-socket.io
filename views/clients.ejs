@@ -4,6 +4,7 @@
         <section class="search-client">
             <input type="text" id="searchTerm" name="searchTerm" placeholder="buscar por nombre, cuit o email">
         </section>
+        
         <section class="form-container">
             <form class="form">
 
@@ -20,8 +21,8 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="address">direccion</label>
-                        <input type="text" id="name" name="name" placeholder="ejemplo: calle s/n nº 23652">
+                        <label for="address">dirección</label>
+                        <input type="text" id="address" name="address" placeholder="ejemplo: calle s/n nº 23652">
                     </div>
                     <div class="form-group">
                         <label for="city">ciudad</label>
@@ -32,17 +33,20 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">email</label>
-                        <input type="text" id="email" name="mail" placeholder="ejemplo: example@email.org">
+                        <input type="email" id="email" name="email" placeholder="ejemplo: example@email.org">
                     </div>
                     <div class="form-group">
-                        <label for="phone">cel</label>
-                        <input type="text" id="phone" name="phone" placeholder="ejemplo: +54 9 3482 278 465">
+                        <label for="phone">celular</label>
+                        <input type="tel" id="phone" name="phone" placeholder="ejemplo: +54 9 3482 278 465">
                     </div>
                 </div>
 
-                <div class="section-buttons">
-                    <button type="button" id="btn-continue">continuar</button>
-                    <button type="button" id="btn-clean">limpiar</button>
+                <!-- Botones con el mismo diseño que productos -->
+                <div class="form-footer">
+                    <div class="button-section">
+                        <button type="button" class="btn btn-continue">Continuar</button>
+                        <button type="button" class="btn btn-clear">Limpiar</button>
+                    </div>
                 </div>
 
             </form>

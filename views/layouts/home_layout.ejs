@@ -6,21 +6,21 @@
         <!-- Nueva barra de progreso navegable -->
         <nav class="progress-nav">
             <div class="progress-steps">
-                <a href="/facturation/products" class="progress-step <%= internalPage === 'products' ? 'active' : '' %>">
+                <a href="/facturation/products" class="progress-step <%= internalPage === 'products' ? 'active' : '' %>" id="step-product">
                     <div class="step-number">1</div>
                     <div class="step-label">Productos</div>
                 </a>
                 
                 <div class="progress-connector"></div>
                 
-                <a href="/facturation/clients" class="progress-step <%= internalPage === 'clients' ? 'active' : '' %>">
+                <a href="/facturation/clients" class="progress-step <%= internalPage === 'clients' ? 'active' : '' %>" id="step-client">
                     <div class="step-number">2</div>
                     <div class="step-label">Clientes</div>
                 </a>
 
                 <div class="progress-connector"></div>
 
-                <a href="/facturation/pay" class="progress-step <%= internalPage === 'pay' ? 'active' : '' %>">
+                <a href="/facturation/pay" class="progress-step <%= internalPage === 'pay' ? 'active' : '' %>" id="step-pay">
                     <div class="step-number">3</div>
                     <div class="step-label">Pago</div>
                 </a>
@@ -29,3 +29,4 @@
 
         <%- body %>
     </div>
+    <script type="module" src="/assets/js/home_layout.js"></script>

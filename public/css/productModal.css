@@ -184,7 +184,7 @@
 .save-data button {
     padding: 8px 16px;
     border: none;
-    background-color: #6c757d;
+    background-color: #19456b;
     color: white;
     box-shadow: 0.2px 0.3px 0.8px rgb(51, 51, 94);
     border-radius: 3px;
@@ -193,4 +193,11 @@
 .save-data button:hover {
     background-color: #606f7c;
     cursor: pointer;
+}
+
+.selection-counter {
+    margin-left: 10px;
+    color: #4CAF50;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
