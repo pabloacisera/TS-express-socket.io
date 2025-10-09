@@ -1,54 +1,60 @@
 <%- layout('layouts/home_layout') %>
     <link rel="stylesheet" href="/assets/css/client_template.css">
     <div class="client-container">
-        <section class="search-client">
-            <input type="text" id="searchTerm" name="searchTerm" placeholder="buscar por nombre, cuit o email">
-        </section>
-        
-        <section class="form-container">
-            <form class="form">
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">nombre completo</label>
-                        <input type="text" id="name" name="name" placeholder="ejemplo: juan perez">
-                    </div>
-                    <div class="form-group">
-                        <label for="cuit">CUIT</label>
-                        <input type="text" id="cuit" name="cuit" placeholder="ejemplo: 20111333445">
-                    </div>
-                </div>
+        <%- include('partials/clientsModal', { dataJson: clients }) %>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="address">dirección</label>
-                        <input type="text" id="address" name="address" placeholder="ejemplo: calle s/n nº 23652">
-                    </div>
-                    <div class="form-group">
-                        <label for="city">ciudad</label>
-                        <input type="text" id="city" name="city" placeholder="ejemplo: ciudad falsa">
-                    </div>
-                </div>
+            <section class="search-client">
+                <input type="text" id="clientSearchTermInput" name="clientSearchTermInput"
+                    placeholder="buscar por nombre, cuit o email">
+            </section>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">email</label>
-                        <input type="email" id="email" name="email" placeholder="ejemplo: example@email.org">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">celular</label>
-                        <input type="tel" id="phone" name="phone" placeholder="ejemplo: +54 9 3482 278 465">
-                    </div>
-                </div>
+            <section class="form-container">
+                <form class="form">
 
-                <!-- Botones con el mismo diseño que productos -->
-                <div class="form-footer">
-                    <div class="button-section">
-                        <button type="button" class="btn btn-continue">Continuar</button>
-                        <button type="button" class="btn btn-clear">Limpiar</button>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">nombre completo</label>
+                            <input type="text" id="name" name="name" placeholder="ejemplo: juan perez">
+                        </div>
+                        <div class="form-group">
+                            <label for="cuit">CUIT</label>
+                            <input type="text" id="cuit" name="cuit" placeholder="ejemplo: 20111333445">
+                        </div>
                     </div>
-                </div>
 
-            </form>
-        </section>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">dirección</label>
+                            <input type="text" id="address" name="address" placeholder="ejemplo: calle s/n nº 23652">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">ciudad</label>
+                            <input type="text" id="city" name="city" placeholder="ejemplo: ciudad falsa">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">email</label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo: example@email.org">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">celular</label>
+                            <input type="tel" id="phone" name="phone" placeholder="ejemplo: +54 9 3482 278 465">
+                        </div>
+                    </div>
+
+                    <!-- Botones con el mismo diseño que productos -->
+                    <div class="form-footer">
+                        <div class="button-section">
+                            <button type="button" class="btn btn-continue">Continuar</button>
+                            <button type="button" class="btn btn-clear">Limpiar</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
     </div>
+
+    <script type="module" src="/assets/js/client.js"></script>

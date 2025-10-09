@@ -1,6 +1,7 @@
 import { getData, saveData } from './helpers/sessionHelpers.js';
 import { initModal } from './acceptModal.js';
-import { openToast } from './helpers/toastHelper.js'
+import { openToast } from './helpers/toastHelper.js';
+import { continueStepClient } from './helpers/stepAccess.js';
 
 function populateTable(data, target) {
     // Mostrar mensaje de carga con animación
@@ -51,28 +52,6 @@ function populateTable(data, target) {
             target.parent().removeClass('loading-state');
         });
     }, 1200);
-}
-
-export function verifyProductsExist(key) {
-    let data = getData(key);
-
-    if (!data || !data.products || data.products.length < 1) {
-        return false;
-    }
-
-    return true;
-}
-
-export function continueStepClient(path) {
-    // verificar si existen datos antes de continuar
-    const exists = verifyProductsExist('selectedProducts');
-    if (!exists) {
-        openToast('Restricción', 'No se han cargado productos áun. Intenteló nuevamente.', 2800);
-        return;
-    }
-
-
-    window.location.href = path
 }
 
 export const deleteProductById = (key, productId) => {
@@ -167,7 +146,7 @@ $(function () {
      */
 
     $('.btn.btn-continue').on('click', function () {
-        continueStepClient('/facturation/clients');
+        continueStepClient( 'selectedProducts', '/facturation/clients');
     })
 
     /**

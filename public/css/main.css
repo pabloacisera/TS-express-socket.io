@@ -7,7 +7,7 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f8fad8;
+    background-color: #fdfdf4;
 }
 
 header{
@@ -16,7 +16,7 @@ header{
     width: 100vw;
     overflow: hidden;
     height: 4rem;
-    background-color: rgb(211, 132, 75);
+    background-color: rgb(209, 163, 129);
     box-shadow: 1px 2.8px 3px rgb(128, 70, 29);
     border: none;
     display: flex;
@@ -54,7 +54,7 @@ header{
 
 .link-item a{
     text-decoration: none;
-    color: #000
+    color: #414040
 }
 
 .link-item a:hover{
@@ -71,10 +71,14 @@ header{
     padding-right: 10px;
 }
 
+.auth p{
+    color: #414040
+}
+
 .logo img{
     width: 2rem;
     height: 2rem;
-    color: #000;
+    color: #414040;
     border-radius: 100%;
 }
 

@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/assets/css/clientModal.css">
+
+<script id="client-data" type="application/json">
+    <%- clients %>
+</script>
+
+<div class="client-modal-overlay"> <!-- CLASE ÚNICA -->
+    <div class="client-modal-container">
+        <div class="client-header-modal"> <!-- CLASE ÚNICA -->
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg>
+        </div>
+        <div class="client-container-modal">
+            <input 
+            type="text" 
+            name="clientSearchTerm" 
+            id="clientSearchTerm" 
+            autofocus 
+            placeholder="buscar producto"
+            class="client-container-modal-input"
+            >
+            <section class="client-result-search"></section>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="/assets/js/clientModal.js"></script> 

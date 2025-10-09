@@ -89,7 +89,8 @@
 
 .table-body tr td button {
     padding: 5px 8px;
-    background-color: rgb(236, 39, 39);
+    background-color: rgb(231, 59, 59);
+    color: white;
     border:none;
     border-radius: 3px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -258,4 +259,53 @@ input::-ms-input-placeholder {
     font-size: 0.7rem;
     color: #adb5bd;
     font-style: italic;
+}
+
+/*
+ * MEDIA QUERY PARA MÓVILES (EJ. PANTALLAS DE 600PX O MENOS)
+ */
+@media (max-width: 600px) {
+    /* 1. Ajustar el ancho de los contenedores principales */
+    .product-container, 
+    .search-product, 
+    .table-products {
+        width: 100%; /* Ocupar todo el ancho disponible */
+        padding: 0 10px; /* Agregar un pequeño padding horizontal para que no toque los bordes */
+        box-sizing: border-box;
+    }
+
+    /* 2. Reducir padding de la tabla */
+    .table-head th,
+    .table-body td {
+        padding: 8px 10px;
+        font-size: 0.7em; /* Reducir el tamaño de la fuente de las celdas */
+    }
+
+    /* 3. Estilos del Footer: Apilar elementos */
+    .table-footer {
+        flex-direction: column; /* Apilar Total y Botones */
+        align-items: flex-start; /* Alinear todo a la izquierda */
+        padding: 15px 10px; /* Reducir padding */
+        gap: 15px;
+    }
+
+    /* 4. Estilos de los Botones: Ocupar todo el ancho y apilar */
+    .button-section {
+        width: 100%; /* Ocupar todo el ancho del footer */
+        flex-direction: column; /* Apilar los botones verticalmente */
+        gap: 8px; /* Reducir el espacio entre botones */
+    }
+
+    .btn {
+        width: 100%; /* Botones ocupan todo el ancho disponible */
+        padding: 10px; /* Reducir el padding de los botones */
+        font-size: 0.8rem; /* Reducir el tamaño de la fuente de los botones */
+    }
+
+    /* 5. Asegurar que la sección total se muestre correctamente */
+    .total-section {
+        width: 100%;
+        justify-content: space-between; /* Opcional: Centrar o justificar el total si se desea */
+        font-size: 0.9rem;
+    }
 }

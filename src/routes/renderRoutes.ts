@@ -10,13 +10,12 @@ r.get("/", (req, res) => {
     res.redirect("/home");
 });
 
-// Página principal del home (sin sección específica)
 r.get("/home", (req, res) => {
     res.render("home", {
         title: "Home - principal",
         user: "GUEST",
         currentPage: "home",
-        internalPage: null  // No hay página interna seleccionada
+        internalPage: null 
     });
 });
 
@@ -24,15 +23,13 @@ r.get("/facturation", (req, res) => {
     res.redirect("/facturation/products")
 })
 
-// Sub-rutas del home
 r.get("/facturation/products", (req, res) => {
     res.render("products", {
         title: "Gestión de Productos",
         user: "GUEST",
         currentPage: "home",
-        internalPage: "products",  // ← Página interna activa
+        internalPage: "products",
         products: productsJson,
-        //clients: clientsJson
     });
 });
 
@@ -41,8 +38,7 @@ r.get("/facturation/clients", (req, res) => {
         title: "Gestión de Clientes",
         user: "GUEST",
         currentPage: "home",
-        internalPage: "clients",  // ← Página interna activa
-        //products: productsJson,
+        internalPage: "clients",
         clients: clientsJson
     });
 });
@@ -52,8 +48,7 @@ r.get("/facturation/pay", (req, res) => {
         title: "Gestión de Pago",
         user: "GUEST",
         currentPage: "home",
-        internalPage: "pay",  // ← Página interna activa
-        //products: productsJson,
+        internalPage: "pay", 
     });
 });
 

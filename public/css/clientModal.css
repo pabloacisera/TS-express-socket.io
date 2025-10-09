@@ -1,0 +1,62 @@
+.client-modal-overlay { /* CLASE ÚNICA */
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.client-modal-overlay.active { /* CLASE ÚNICA */
+    display: flex;
+}
+
+.client-header-modal { /* CLASE ÚNICA */
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.client-modal-container {
+    position: relative;
+    width: 95%;
+    max-width: 60rem;
+    height: 80vh;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    z-index: 1001;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.client-container-modal {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.client-container-modal-input {
+    width: 100%;
+    height: 2rem;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 3px;
+    border-bottom: 0.8px solid rgb(95, 95, 95);
+    font-size: 0.8rem;
+    outline: none;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background-color: #e7ebe9;
+    color: #686767;
+    letter-spacing: 0.1rem;
+    box-sizing: border-box;
+    box-shadow: 0.4px 1.5px 0.5px #727272; 
+}
